@@ -9,11 +9,11 @@
   }
   
   .calculator-screen {
-    width: 100%;
+    width: 93%;
     font-size: 5rem;
     height: 80px;
     border: none;
-    background-color: #252525;
+    background-color: #575454;
     color: #fff;
     text-align: right;
     padding-right: 20px;
@@ -42,7 +42,7 @@
   }
   
   .all-clear {
-    background-color: #f0595f;
+    background-color: #e44f4f;
     border-color: #b0353a;
     color: #fff;
   }
@@ -52,7 +52,7 @@
   }
   
   .equal-sign {
-    background-color: #2e86c0;
+    background-color: #2ec02e;
     border-color: #337cac;
     color: #fff;
     height: 100%;
@@ -60,7 +60,7 @@
   }
   
   .equal-sign:hover {
-    background-color: #4e9ed4;
+    background-color: #342994;
   }
   
   .calculator-keys {

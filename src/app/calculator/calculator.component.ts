@@ -28,7 +28,7 @@ export class CalculatorComponent implements OnInit {
   /*
     get the number pressed on the calculator
    */
-  public getNumber(input: string){
+  public get_digit(input: string){
     if(this.wait)
     {
       this.displayNum = input;
@@ -39,13 +39,13 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
-  getDecimal(){
+  get_point(){
     if(!this.displayNum.includes('.')){
         this.displayNum += '.'; 
     }
   }
 
-  private doCalculation(op: any , secondOp: any){
+  private execute(op: any , secondOp: any){
     switch (op){
       case '+':
       return this.num1 += secondOp; 
@@ -60,12 +60,12 @@ export class CalculatorComponent implements OnInit {
     }
   }
   
-  public getOperation(op: string){
+  public get_operation(op: string){
     if(this.num1 === null){
       this.num1 = Number(this.displayNum);
 
     }else if(this.operation){
-      const result = this.doCalculation(this.operation , Number(this.displayNum))
+      const result = this.execute(this.operation , Number(this.displayNum))
       this.displayNum = String(result);
       this.num1 = result;
     }
@@ -73,7 +73,7 @@ export class CalculatorComponent implements OnInit {
     this.wait = true;
   }
 
-  public clear(){
+  public reset(){
     this.displayNum = '0';
     this.num1 = null;
     this.operation = null;
