@@ -45,8 +45,8 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
-  private execute(op: any , num2: any){
-    switch (op){
+  private execute(input_operator: any , num2: any){
+    switch (input_operator){
       case '+':
       return this.num1 += num2; 
       case '-': 
@@ -60,7 +60,7 @@ export class CalculatorComponent implements OnInit {
     }
   }
   
-  public get_operation(op: string){
+  public get_operation(input_operator: string){
     if(this.num1 === null){
       this.num1 = Number(this.displayNum);
 
@@ -69,7 +69,7 @@ export class CalculatorComponent implements OnInit {
       this.displayNum = String(result);
       this.num1 = result;
     }
-    this.operation = op;
+    this.operation = input_operator;
     this.wait = true;
   }
 
