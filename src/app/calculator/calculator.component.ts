@@ -45,18 +45,18 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
-  private execute(op: any , secondOp: any){
+  private execute(op: any , num2: any){
     switch (op){
       case '+':
-      return this.num1 += secondOp; 
+      return this.num1 += num2; 
       case '-': 
-      return this.num1 -= secondOp; 
+      return this.num1 -= num2; 
       case '*': 
-      return this.num1 *= secondOp; 
+      return this.num1 *= num2; 
       case '/': 
-      return this.num1 /= secondOp; 
+      return this.num1 /= num2; 
       case '=':
-      return secondOp;
+      return num2;
     }
   }
   
