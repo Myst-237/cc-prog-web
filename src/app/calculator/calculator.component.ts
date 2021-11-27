@@ -13,12 +13,14 @@ export class CalculatorComponent implements OnInit {
     wait: the boolean that determains if we should wait for the next operand to complete
     num1: first operand
     operation:  the operation to perform on two given inputs
+    operation_suit: store the list of operaitons
   */
 
   displayNum = '0';
   wait = false;
   num1: any = null;
   operation: any = null;
+  operation_suit: String[] = [];
 
   constructor() { }
 
@@ -29,6 +31,8 @@ export class CalculatorComponent implements OnInit {
     get the number pressed on the calculator
    */
   public get_digit(input: string){
+    //update the operation suit if a digit is pressed
+    this.operation_suit = []
     if(this.wait)
     {
       this.displayNum = input;
@@ -61,16 +65,28 @@ export class CalculatorComponent implements OnInit {
   }
   
   public get_operation(input_operator: string){
-    if(this.num1 === null){
-      this.num1 = Number(this.displayNum);
+    //update the operation_suit depending on the suit elements
+    if(this.operation_suit.length > 0){
+      this.operation_suit = []
+      this.operation = input_operator;
+      this.operation_suit.push(input_operator);
+      this.wait = true;
 
-    }else if(this.operation){
-      const result = this.execute(this.operation , Number(this.displayNum))
-      this.displayNum = String(result);
-      this.num1 = result;
+    }else{
+    
+      if(this.num1 === null){
+        this.num1 = Number(this.displayNum);
+
+      }else if(this.operation){
+        const result = this.execute(this.operation , Number(this.displayNum))
+        this.displayNum = String(result);
+        this.num1 = result;
+      }
+      this.operation = input_operator;
+      this.operation_suit.push(input_operator);
+      this.wait = true;
     }
-    this.operation = input_operator;
-    this.wait = true;
+  
   }
 
   public reset(){
